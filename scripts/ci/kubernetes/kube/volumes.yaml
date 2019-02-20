@@ -21,6 +21,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: airflow-dags
+  namespace: ia-airflow-test
 spec:
   accessModes:
     - ReadWriteOnce
@@ -28,6 +29,7 @@ spec:
     storage: 2Gi
   hostPath:
     path: /airflow-dags/
+  storageClassName: rbd
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -39,6 +41,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
+  storageClassName: rbd
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -51,6 +54,7 @@ spec:
     storage: 2Gi
   hostPath:
     path: /airflow-logs/
+  storageClassName: rbd
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -62,6 +66,7 @@ spec:
   resources:
     requests:
       storage: 2Gi
+  storageClassName: rbd
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -74,6 +79,7 @@ spec:
     storage: 2Gi
   hostPath:
     path: /airflow-dags/
+  storageClassName: rbd
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -85,3 +91,4 @@ spec:
   resources:
     requests:
       storage: 2Gi
+  storageClassName: rbd
